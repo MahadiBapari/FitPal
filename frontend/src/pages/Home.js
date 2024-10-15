@@ -15,12 +15,14 @@ const Home = () => {
             }
         }
         fetchWorkouts()
-}, [])
+}, [dispatch,])
+
+console.log('workouts:', workouts);
 
     return(
         <div className="home">
             <div className="workouts">
-                {workouts && workouts.map((workout) =>(
+                {workouts && workouts.map(workout =>(
                     <WorkoutDetails key={workout._id} workout={workout}/>
                 ))}
             </div>

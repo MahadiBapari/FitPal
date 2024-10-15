@@ -76,6 +76,11 @@ header a {
   margin: 5px 0;
 }
 
+.workout-details span {
+  cursor: pointer;
+  color: red; 
+  text-decoration: underline; 
+}
 /* Form Styling */
 form {
   background: #fff;
