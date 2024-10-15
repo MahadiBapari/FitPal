@@ -1,39 +1,42 @@
 import { useState } from "react"
+import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
 
 const WorkoutForm = () => {
 
-const [title, setTitle] = useState('')
-const [weight, setWeight] = useState('')
-const [reps, setReps] = useState('')
-const [sets, setSets] = useState('')
-const [error, setError] = useState(null)
+    const { dispatch } = useWorkoutsContext()
+    const [title, setTitle] = useState('')
+    const [weight, setWeight] = useState('')
+    const [reps, setReps] = useState('')
+    const [sets, setSets] = useState('')
+    const [error, setError] = useState(null)
 
-const handleSubmit = async (e) => {
-    e.preventDefault()
-    const workout = {title, weight, reps, sets}
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        const workout = {title, weight, reps, sets}
 
-    const response = await fetch('/api/workouts', {
-        method: 'POST',
-        body: JSON.stringify(workout),
-        headers: {
-            'Content-Type': 'application/json'
+        const response = await fetch('/api/workouts', {
+            method: 'POST',
+            body: JSON.stringify(workout),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+
+    const json = await response.json()
+
+        if(!response.ok){
+            setError(json.error)
         }
-    })
-
-const json = await response.json()
-
-    if(!response.ok){
-        setError(json.error)
+        if(response.ok){
+            setTitle('')
+            setWeight('')
+            setReps('')
+            setSets('')
+            setError(null)
+            console.log('New Workout Added', )
+            dispatch({type: 'CREATE_WORKOUTS', payload: json})
+        }
     }
-    if(response.ok){
-        setTitle('')
-        setWeight('')
-        setReps('')
-        setSets('')
-        setError(null)
-        console.log('New Workout Added', )
-    }
-}
 
     return ( 
         <form className="create" onSubmit = {handleSubmit}>
