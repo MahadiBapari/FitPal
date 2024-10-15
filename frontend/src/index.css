@@ -1,0 +1,146 @@
+/* General Layout */
+:root {
+  --primary: #024c58;
+  --secondary: #27c4c1;
+  --accent: #00796b;
+  --light-bg: #f9f9f9;
+  --dark-text: #333;
+  --light-text: #555;
+}
+
+body {
+  background: #f0f2f5;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  color: var(--dark-text);
+}
+
+/* Header */
+header {
+  background: #fff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header a {
+  color: var(--dark-text);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Home Page Layout */
+.home {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.workouts {
+  display: flex;
+  flex-direction: column;
+}
+
+.workout-details {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.workout-details:hover {
+  transform: scale(1.03);
+}
+
+.workout-details h4 {
+  color: var(--primary);
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+.workout-details p {
+  font-size: 0.95em;
+  color: var(--light-text);
+  margin: 5px 0;
+}
+
+/* Form Styling */
+form {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  color: var(--dark-text);
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 85%;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  font-size: 1em;
+  transition: border-color 0.2s;
+}
+
+input:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+form button {
+  background-color: var(--primary);
+  color: #ffffff;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  font-weight: 600;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+form button:hover {
+  background-color: var(--accent);
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 900px) {
+  .home {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .workouts {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  form {
+    padding: 20px;
+  }
+
+  form button {
+    font-size: 1em;
+  }
+}
