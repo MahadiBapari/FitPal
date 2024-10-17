@@ -1,8 +1,5 @@
 /* General Layout */
 :root {
-  --primary: #024c58;
-  --secondary: #27c4c1;
-  --accent: #00796b;
   --light-bg: #f9f9f9;
   --dark-text: #333;
   --light-text: #555;
@@ -18,22 +15,43 @@ body {
 /* Header */
 header {
   background: #fff;
+  margin-top: 0;
+  padding: 10px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-header .container {
+.navbar {
   max-width: 1200px;
   margin: 0 auto;
   padding: 10px 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 header a {
   color: var(--dark-text);
   text-decoration: none;
   font-weight: 500;
+}
+
+button {
+  background-color: #ea980000; 
+  border: 1px solid ;
+  color: rgb(0, 0, 0);
+  padding: 10px 10px; 
+  margin-top: 20px;
+  text-align: center; 
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block; 
+  font-size: 8px; 
+  font-weight: bold; 
+  letter-spacing: 2px; 
+  box-shadow: 0 5px 5px rgba(65, 63, 63, 0.3); 
+  transition: all 0.3s ease 0s; 
+  cursor: pointer;
+  outline: none;
 }
 
 /* Home Page Layout */
@@ -46,47 +64,40 @@ header a {
   padding: 20px;
 }
 
-.workouts {
-  display: flex;
-  flex-direction: column;
-}
-
 .workout-details {
   background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+  margin: auto;
   margin-bottom: 20px;
-  transition: transform 0.2s ease-in-out;
+  padding: 30px;
+  position: relative;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
 }
-
-.workout-details:hover {
-  transform: scale(1.03);
-}
-
 .workout-details h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
   color: var(--primary);
-  font-size: 1.4em;
-  margin-bottom: 10px;
 }
-
 .workout-details p {
-  font-size: 0.95em;
-  color: var(--light-text);
-  margin: 5px 0;
+  margin-bottom: 5px;
+  font-size: 0.9em;
+  color: #555;
+}
+.workout-details span {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  color: #333;
 }
 
-.workout-details span {
-  cursor: pointer;
-  color: red; 
-  text-decoration: underline; 
-}
 /* Form Styling */
 form {
   background: #fff;
   padding: 30px;
-  border-radius: 10px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  height: 500px;
 }
 
 form label {
@@ -107,36 +118,23 @@ input {
 }
 
 input:focus {
-  border-color: var(--accent);
+  border-color: rgb(41, 40, 40);
   outline: none;
 }
 
 form button {
-  background-color: var(--primary);
-  color: #ffffff;
-  padding: 12px;
-  border: none;
-  border-radius: 5px;
+
   width: 100%;
-  font-weight: 600;
-  font-size: 1.1em;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+  padding: 15px;
+  font-size: 10px;
 }
 
-form button:hover {
-  background-color: var(--accent);
-}
 
 /* Media Queries for Responsiveness */
 @media screen and (max-width: 900px) {
   .home {
     grid-template-columns: 1fr;
     gap: 20px;
-  }
-
-  .workouts {
-    margin-bottom: 20px;
   }
 }
 
