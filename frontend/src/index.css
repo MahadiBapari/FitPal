@@ -3,6 +3,7 @@
   --light-bg: #f9f9f9;
   --dark-text: #333;
   --light-text: #555;
+  --error: #e7195a;
 }
 
 body {
@@ -40,7 +41,7 @@ button {
   border: 1px solid ;
   color: rgb(0, 0, 0);
   padding: 10px 10px; 
-  margin-top: 20px;
+  border-radius: 2px;
   text-align: center; 
   text-transform: uppercase;
   text-decoration: none;
@@ -97,7 +98,7 @@ form {
   background: #fff;
   padding: 30px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  height: 500px;
+  height: 540px;
 }
 
 form label {
@@ -125,8 +126,51 @@ input:focus {
 form button {
 
   width: 100%;
+  margin-top: 20px;
   padding: 15px;
   font-size: 10px;
+}
+
+div.error {
+  font-size: 12px;
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  margin: 20px 0;
+}
+input.error {
+  border: 1px solid var(--error);
+}
+
+/* navbar */
+
+.navbar{
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+nav div{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+nav a {
+  margin-left: 10px;
+}
+/* auth forms */
+form.signup, form.login {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 4px;
 }
 
 
@@ -147,3 +191,5 @@ form button {
     font-size: 1em;
   }
 }
+
+

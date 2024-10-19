@@ -1,12 +1,17 @@
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
+import { useAuthContext } from '../hooks/useAuthContext'
 
 const WorkoutDetails = ({ workout }) => {
 
     const { dispatch } = useWorkoutsContext()
+    const { user } = useAuthContext()
 
   const handleClick = async () => {
     const response = await fetch('/api/workouts/' + workout._id, {
-      method: 'DELETE'
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${user.token}`
+      }
     })
 
     if (response.ok) {

@@ -17,6 +17,10 @@ const workoutSchema = new schema({
     },
     weight: {
         type: Number,
+    },
+    user_id: {
+      type: String,
+      required: true
     }
     
  

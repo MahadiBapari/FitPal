@@ -7,7 +7,8 @@ const createWorkout = async (req, res) => {
     const{title, reps, sets, weight} = req.body
 
     try {
-        const workout = await Workout.create({title, reps, sets, weight})
+        const user_id = req.user._id
+        const workout = await Workout.create({title, reps, sets, weight, user_id})
         res.status(200).json(workout)
     } catch (error) {
         res.status(400).json({error: error.message})
@@ -16,7 +17,10 @@ const createWorkout = async (req, res) => {
 
 //get all workout
 const getAllWorkouts = async (req,res) => {
-    const workouts = await Workout.find({})
+
+    const user_id = req.user._id
+
+    const workouts = await Workout.find({user_id})
     res.status(200).json(workouts)
 }
 
